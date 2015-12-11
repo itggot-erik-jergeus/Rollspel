@@ -103,9 +103,9 @@ class Sorcerer
   end
 end
 
-Lorem = Sorcerer.new(name: "Lorem", intelligence: 2, vitality: 2, willpower: 2, luck: 4)
-Ipsum = Ranger.new(name: "Ipsum", dexterity: 2, vitality: 2, agility: 2, luck: 4)
-Merol = Swordfighter.new(name: "Merol", strength: 2, vitality: 2, speed: 2, luck: 4)
+Lorem = Sorcerer.new(name: 'Lorem', intelligence: 2, vitality: 2, willpower: 2, luck: 4)
+Ipsum = Ranger.new(name: 'Ipsum', dexterity: 2, vitality: 2, agility: 2, luck: 4)
+Merol = Swordfighter.new(name: 'Merol', strength: 2, vitality: 2, speed: 2, luck: 4)
 
 
 puts Ipsum.my_stats
