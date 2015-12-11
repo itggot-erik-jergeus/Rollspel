@@ -1,69 +1,79 @@
 class Swordfighter
   def initialize(name:, strength:, vitality:, speed:, luck:)
-    @name = name
-    @strength = strength
-    @vitality = vitality
-    @speed = speed
-    @luck = luck
+    if strength + vitality + speed + luck > 10
+      tot_stat = strength + vitality + speed + luck
+      "You have selected too high base stats, the maximum sum is 10, you selected #{tot_stat}"
+    else
+      @name = name
+      @strength = strength
+      @vitality = vitality
+      @speed = speed
+      @luck = luck
+      @health = 150.0 + @vitality * 20
+      @armor = 1.0
+      @weapon = 1.0
+      @dodge = 1 - 0.005 * @speed
+      @base_dmg = 30.0 + @strength * 10.0
+      @experience = 0.0
+      @level = 1.0
+    end
   end
 
-  def health
-    @health = 150.0 + @vitality * 20.0
+  def my_exp
+    @experience
   end
-  def armor
-    @armor = 1.0
+  def my_level
+    @level
   end
-  def weapon
-    @weapon = 1.0
+  def my_hp
+    @health
   end
-  def dodge_chance
-    @dodge = 1.0 - 0.005 * @speed
-  end
-  def base_dmg
-    @base_dmg = 30.0 + @strength * 10.0
-  end
-  def exp
-    @experience = 0.0
-  end
-  def level
-    @level = 1.0 + @experience / (100.0 + 50.0 * @level)
+  def my_stats
+    "#{@name}s stats are as follows:\nStrength = #{@strength}\nVitality = #{@vitality}\nSpeed = #{@speed}\nLuck = #{@luck}\nHealth = #{@health}\nArmor Multiplier = #{@armor}\nWeapon Multiplier = #{@weapon}\nDodge Chance = #{@dodge}\nBase Damage = #{@base_dmg}"
   end
 end
 
 class Ranger
   def initialize(name:, dexterity:, vitality:, agility:, luck:)
-    @name = name
-    @dexterity = dexterity
-    @vitality = vitality
-    @agility = agility
-    @luck = luck
+    if dexterity + vitality + agility + luck > 10
+      tot_stat = dexterity + vitality + agility + luck
+      "You have selected too high base stats, the maximum sum is 10, you selected #{tot_stat}"
+    else
+      @name = name
+      @dexterity = dexterity
+      @vitality = vitality
+      @agility = agility
+      @luck = luck
+      @health = 120.0 + @vitality * 15
+      @armor = 1.0
+      @weapon = 1.0
+      @dodge = 1 - 0.01 * @agility
+      @base_dmg = 30.0 + @dexterity * 10.0
+      @experience = 0.0
+      @level = 1.0
+    end
   end
 
-  def health
-    @health = 110.0 + @vitality * 15.0
+  def my_exp
+    @experience
   end
-  def armor
-    @armor = 1.0
+  def my_level
+    @level
   end
-  def weapon
-    @weapon = 1.0
+  def my_hp
+    @health
   end
-  def dodge_chance
-    @dodge = 1.0 - 0.01 * @agility
-  end
-  def base_dmg
-    @base_dmg = 30.0 + @dexterity * 10.0
-  end
-  def exp
-    @experience = 0.0
-  end
-  def level
-    @level = 1.0 + @experience / (100.0 + 50.0 * @level)
+  def my_stats
+    "#{@name}s stats are as follows:\nDexterity = #{@dexterity}\nVitality = #{@vitality}\nAgility = #{@agility}\nLuck = #{@luck}\nHealth = #{@health}\nArmor Multiplier = #{@armor}\nWeapon Multiplier = #{@weapon}\nDodge Chance = #{@dodge}\nBase Damage = #{@base_dmg}"
   end
 end
 
 class Sorcerer
   def initialize(name:, intelligence:, vitality:, willpower:, luck:)
+    if intelligence + vitality + willpower + luck > 10
+      tot_stat = intelligence + vitality + willpower + luck
+      "You have selected too high base stats, the maximum sum is 10, you selected #{tot_stat}"
+    else
     @name = name
     @intelligence = intelligence
     @vitality = vitality
@@ -76,8 +86,8 @@ class Sorcerer
     @base_dmg = 35.0 + @intelligence * 10.0
     @experience = 0.0
     @level = 1.0
+    end
   end
-
 
   def my_exp
     @experience
@@ -89,11 +99,13 @@ class Sorcerer
     @health
   end
   def my_stats
-    "#{name}s stats are the following: "
+    "#{@name}s stats are as follows:\nIntelligence = #{@intelligence}\nVitality = #{@vitality}\nWillpower = #{@willpower}\nLuck = #{@luck}\nHealth = #{@health}\nArmor Multiplier = #{@armor}\nWeapon Multiplier = #{@weapon}\nDodge Chance = #{@dodge}\nBase Damage = #{@base_dmg}"
   end
 end
 
 Lorem = Sorcerer.new(name: "Lorem", intelligence: 2, vitality: 2, willpower: 2, luck: 4)
-puts Lorem.hp
-Lorem.hpup
-puts Lorem.hp
+Ipsum = Ranger.new(name: "Ipsum", dexterity: 2, vitality: 2, agility: 2, luck: 4)
+Merol = Swordfighter.new(name: "Merol", strength: 2, vitality: 2, speed: 2, luck: 4)
+
+
+puts Ipsum.my_stats
