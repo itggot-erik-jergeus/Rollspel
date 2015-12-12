@@ -1,8 +1,20 @@
-class Swordfighter
-  def initialize(name:, strength:, vitality:, speed:, luck:)
+class Classes
+  def my_exp
+    @experience
+  end
+  def my_level
+    @level
+  end
+  def my_hp
+    @health
+  end
+end
+
+class Swordfighter < Classes
+  def initialize(name, strength, vitality, speed, luck)
     if strength + vitality + speed + luck > 10
       tot_stat = strength + vitality + speed + luck
-      "You have selected too high base stats, the maximum sum is 10, you selected #{tot_stat}"
+      puts "#{name}s base stats are too high, the maximum sum is 10, you selected #{tot_stat}"
     else
       @name = name
       @strength = strength
@@ -19,25 +31,16 @@ class Swordfighter
     end
   end
 
-  def my_exp
-    @experience
-  end
-  def my_level
-    @level
-  end
-  def my_hp
-    @health
-  end
   def my_stats
     "#{@name}s stats are as follows:\nStrength = #{@strength}\nVitality = #{@vitality}\nSpeed = #{@speed}\nLuck = #{@luck}\nHealth = #{@health}\nArmor Multiplier = #{@armor}\nWeapon Multiplier = #{@weapon}\nDodge Chance = #{@dodge}\nBase Damage = #{@base_dmg}"
   end
 end
 
-class Ranger
-  def initialize(name:, dexterity:, vitality:, agility:, luck:)
+class Ranger < Classes
+  def initialize(name, dexterity, vitality, agility, luck)
     if dexterity + vitality + agility + luck > 10
       tot_stat = dexterity + vitality + agility + luck
-      "You have selected too high base stats, the maximum sum is 10, you selected #{tot_stat}"
+      puts "#{name}s base stats are too high, the maximum sum is 10, you selected #{tot_stat}"
     else
       @name = name
       @dexterity = dexterity
@@ -54,25 +57,16 @@ class Ranger
     end
   end
 
-  def my_exp
-    @experience
-  end
-  def my_level
-    @level
-  end
-  def my_hp
-    @health
-  end
   def my_stats
     "#{@name}s stats are as follows:\nDexterity = #{@dexterity}\nVitality = #{@vitality}\nAgility = #{@agility}\nLuck = #{@luck}\nHealth = #{@health}\nArmor Multiplier = #{@armor}\nWeapon Multiplier = #{@weapon}\nDodge Chance = #{@dodge}\nBase Damage = #{@base_dmg}"
   end
 end
 
-class Sorcerer
-  def initialize(name:, intelligence:, vitality:, willpower:, luck:)
+class Sorcerer < Classes
+  def initialize(name, intelligence, vitality, willpower, luck)
     if intelligence + vitality + willpower + luck > 10
       tot_stat = intelligence + vitality + willpower + luck
-      "You have selected too high base stats, the maximum sum is 10, you selected #{tot_stat}"
+      puts "#{name}s base stats are too high, the maximum sum is 10, you selected #{tot_stat}"
     else
     @name = name
     @intelligence = intelligence
@@ -89,23 +83,14 @@ class Sorcerer
     end
   end
 
-  def my_exp
-    @experience
-  end
-  def my_level
-    @level
-  end
-  def my_hp
-    @health
-  end
   def my_stats
     "#{@name}s stats are as follows:\nIntelligence = #{@intelligence}\nVitality = #{@vitality}\nWillpower = #{@willpower}\nLuck = #{@luck}\nHealth = #{@health}\nArmor Multiplier = #{@armor}\nWeapon Multiplier = #{@weapon}\nDodge Chance = #{@dodge}\nBase Damage = #{@base_dmg}"
   end
 end
 
-Lorem = Sorcerer.new(name: 'Lorem', intelligence: 2, vitality: 2, willpower: 2, luck: 4)
-Ipsum = Ranger.new(name: 'Ipsum', dexterity: 2, vitality: 2, agility: 2, luck: 4)
-Merol = Swordfighter.new(name: 'Merol', strength: 2, vitality: 2, speed: 2, luck: 4)
 
+Lorem = Sorcerer.new('Lorem', 1, 2, 3, 4)
+Ipsum = Ranger.new('Ipsum', 2, 2, 2, 4)
+Merol =  Swordfighter.new('Merol', 3, 2, 2, 3)
 
-puts Ipsum.my_stats
+puts Lorem.quest
